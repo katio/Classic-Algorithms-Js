@@ -5,7 +5,9 @@
   "description": "Classic Algorithms in JavaScript",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "watch": "jest --watch",
+    "watch-all": "jest --watchAll"
   },
   "author": "",
   "license": "ISC",
