@@ -1,11 +1,11 @@
 let darwin = require('./index')
 
 describe('darwin sorting', () => {
-  it('Should correctly order a list of 20 elements', () => {
-    let unorderedList20 = [6,4,11,13,8,7,18,20,12,2,15,9,17,10,3,14,5,1,19,16]
-    let preorderedList20 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-    let orderedList20 = darwin(unorderedList20)
-console.table(orderedList20)
-      expect(orderedList20).toEqual(preorderedList20)
+  it('Should correctly order a list of 8 elements', () => {
+    let unorderedList8 = [8, 2, 1, 6, 3, 7, 4, 5]
+    let preorderedList8 =  [1, 2, 3, 4, 5, 6, 7, 8]
+    let orderedList8 = darwin(unorderedList8)
+console.table(orderedList8)
+      expect(orderedList8).toEqual(preorderedList8)
   })
 })
