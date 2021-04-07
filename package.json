@@ -1,7 +1,6 @@
 {
   "name": "algorithms",
   "version": "1.0.0",
-  "type": "module",
   "description": "Classic Algorithms in JavaScript",
   "main": "index.js",
   "scripts": {

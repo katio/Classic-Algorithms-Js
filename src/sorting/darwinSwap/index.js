@@ -7,11 +7,15 @@ function isOrdered(list){
   return true; 
 }
 
+function randomSwap(list){
+  const index1 = Math.floor(Math.random() * list.length);
+  const index2 = Math.floor(Math.random() * list.length);
+  [list[index1], list[index2]] = [list[index2], list[index1]];
+}
+
 function darwin(list){
   while(!isOrdered(list)){
-    const index1 = Math.floor(Math.random() * list.length);
-    const index2 = Math.floor(Math.random() * list.length);
-    [list[index1], list[index2]] = [list[index2], list[index1]];
+    randomSwap(list)
   }
   return list;
 }
