@@ -1,10 +1,10 @@
 let quickSortSwap = require('./index');
 
-describe('quickSortSwap sorting', () => {
+describe('quickSortSwap3Whiles sorting', () => {
   it('Should correctly order a list of 8 elements with a negative number', () => {
     let unorderedList8 = [4, 3, 2, -2, 12, 1, 5, 6];
     let preorderedList8 = [-2, 1, 2, 3, 4, 5, 6, 12];
-    let orderedList8 = quickSortSwap(unorderedList8);
+    let orderedList8 = quickSortSwap(unorderedList8, 0, 7);
     expect(orderedList8).toEqual(preorderedList8);
   });
   it('Should correctly order a list of 20 elements', () => {
@@ -52,7 +52,7 @@ describe('quickSortSwap sorting', () => {
       19,
       20,
     ];
-    let orderedList20 = quickSortSwap(unorderedList20);
+    let orderedList20 = quickSortSwap(unorderedList20, 0, 19);
     expect(orderedList20).toEqual(preorderedList20);
   });
 });
