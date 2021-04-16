@@ -1,6 +1,6 @@
 let quickSort = require('./index');
 
-describe('quickSort sorting', () => {
+describe('quickSortPure sorting', () => {
   it('Should correctly order a list of 8 elements with a negative number', () => {
     let unorderedList8 = [4, 3, 2, -2, 12, 1, 5, 6];
     let preorderedList8 = [-2, 1, 2, 3, 4, 5, 6, 12];
