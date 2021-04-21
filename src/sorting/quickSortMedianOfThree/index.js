@@ -22,7 +22,8 @@ function quickSortSwap(list, low, high) {
 function medianOfThreeSwap(list, low, high) {
   // TODO WHY THE FOLLOWING FAIL WITH let instead of var
   var pivotPosition = medianThree(list, low, high)
-  [list[pivotPosition], list[list.length-1]] = [list[list.length-1], list[pivotPosition]];
+  [list[pivotPosition], list[list.length-1]] = [list[list.length-1], list[pivotPosition]]
+  console.table({list,low,high,pivotPosition})
   // TODO WHY THE FOLLOWING SWAP DOESN'T WORK?
   // const auxiliar = list[pivotPosition]
   // list[pivotPosition] = list[list.length-1]
