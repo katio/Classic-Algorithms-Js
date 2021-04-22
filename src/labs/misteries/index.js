@@ -1,12 +1,16 @@
+// Semicolon let issues
+
 function medianOfThreeSwap(list, low, high) {
-  var pivotPosition = 0
-  [list[pivotPosition], list[list.length-1]] = [list[list.length-1], list[pivotPosition]]
+  let pivotPosition = ((0)[(list[pivotPosition], list[high])] = [ // must have a semicolon to prevent reference error
+    list[high],
+    list[pivotPosition],
+  ]);
 }
 
-arr = [9,3,4,5,6,7]
-console.table(arr)
-medianOfThreeSwap(arr,0,5)
-console.table(arr)
+arr = [9, 3, 4, 5, 6, 7];
+console.table(arr);
+medianOfThreeSwap(arr, 0, 5);
+console.table(arr);
 
 // the following fails but only in a function
 // function sw(){
@@ -20,7 +24,6 @@ console.table(arr)
 
 //   sw()
 
-
 // FOLLOWING fails without ;
 // function swap(a,b){
 //   console.log('hola');
@@ -30,5 +33,3 @@ console.table(arr)
 // }
 
 // swap(3,4)
-
-
