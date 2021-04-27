@@ -1,7 +1,7 @@
 const {
   sortingPerformace,
 } = require('../../common/functions/sortingPerformance');
-const { unorderedList20 } = require('../../common/constants');
+const { unorderedList20000 } = require('../../common/constants');
 const quickSortSwapSquash = require('./index');
 
-sortingPerformace(quickSortSwapSquash, unorderedList20, 0, 19);
+sortingPerformace(quickSortSwapSquash, unorderedList20000, 0, 19);
