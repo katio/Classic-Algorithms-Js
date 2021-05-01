@@ -1,9 +1,11 @@
 function mergeSort(list, low, high) {
-  if (low >= high) {
+  if (high - low < 1 ) {
     return { list, low, high };
   }
-  const mid = Math.floor(list.length / 2);
-  return merge(mergeSort(list, low, mid - 1), mergeSort(list, mid, high));
+  const mid = Math.floor(low + (high - low)/2);
+  const leftObject = mergeSort(list, low, mid)
+  const rightObject = mergeSort(list, mid + 1, high)
+  return merge( leftObject, rightObject);
 }
 
 function merge(leftObj, rightObj) {
@@ -31,5 +33,12 @@ function merge(leftObj, rightObj) {
   }
   return { list, low: leftObj.low, high: rightObj.high };
 }
+
+const list = [1,-1, 24, 6,9]
+console.log('list before')
+console.table(list)
+const result = mergeSort(list,0,4)
+console.log('list after')
+console.table(result.list)
 
 module.exports = mergeSort;
