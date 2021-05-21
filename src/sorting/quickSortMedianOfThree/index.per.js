@@ -1,5 +1,11 @@
-const { sortingPerformace} = require('../../common/functions/sortingPerformance');
+const measureFunction = require('../../common/functions/measureFunction');
 const { unorderedList20000 } = require('../../common/constants');
-const quickSortMedian = require('./index');
+const quickSort = require('./index');
 
-sortingPerformace(quickSortMedian, unorderedList20000, 0, 19);
+const boundFunction = quickSort.bind(
+  null,
+  unorderedList20000,
+  0,
+  unorderedList20000.length - 1
+);
+measureFunction(boundFunction, 10000);

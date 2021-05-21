@@ -1,7 +1,6 @@
-const {
-  sortingPerformace,
-} = require('../../common/functions/sortingPerformance');
+const measureFunction = require('../../common/functions/measureFunction');
 const { unorderedList20000 } = require('../../common/constants');
 const mergeSort = require('./index');
 
-sortingPerformace(mergeSort, unorderedList20000);
+const boundFunction = mergeSort(unorderedList20000);
+measureFunction(boundFunction, 10000);
