@@ -1,5 +1,5 @@
 let quickSortSwap = require('./index');
-
+let {unorderedList20000, preorderedList20000} = require('../../common/constants');
 describe('quickSortSwapSquash sorting', () => {
   it('Should correctly order a list of 8 elements with a negative number', () => {
     let unorderedList8 = [4, 3, 2, -2, 12, 1, 5, 6];
@@ -54,5 +54,9 @@ describe('quickSortSwapSquash sorting', () => {
     ];
     let orderedList20 = quickSortSwap(unorderedList20, 0, 19);
     expect(orderedList20).toEqual(preorderedList20);
+  });
+  it('Should correctly order a list of 20000 elements', () => {
+    let orderedList20000 = quickSortSwap(unorderedList20000);
+    expect(orderedList20000).toEqual(preorderedList20000);
   });
 });

@@ -1,35 +1,28 @@
-// Semicolon let issues
+function quickSortSwap(list, low, high) {
+  if (low < high) {
+    const pivot = list[high];
+    let leftWall = low;
+    for (let i = low; i < high; i++) {
+      if (list[i] < pivot && i > leftWall) {
+        [list[leftWall], list[i]] = [list[i], list[leftWall]];
+        leftWall++;
+      }
+    }
+    if(list[leftWall]<list[high]){
+        [list[leftWall], list[high]] = [list[high], list[leftWall]];
+    }
 
-function medianOfThreeSwap(list, low, high) {
-  let pivotPosition = ((0)[(list[pivotPosition], list[high])] = [ // must have a semicolon to prevent reference error
-    list[high],
-    list[pivotPosition],
-  ]);
+    quickSortSwap(list, low, leftWall - 1);
+    quickSortSwap(list, leftWall + 1, high);
+  }
+  return list;
 }
 
-arr = [9, 3, 4, 5, 6, 7];
-console.table(arr);
-medianOfThreeSwap(arr, 0, 5);
-console.table(arr);
-
-// the following fails but only in a function
-// function sw(){
-//   let a = 1
-//   let b = 3
-
-//   [a, b] = [b, a]
-//   console.log(a) // 3
-//   console.log(b) // 1
-//   }
-
-//   sw()
-
-// FOLLOWING fails without ;
-// function swap(a,b){
-//   console.log('hola');
-//   [a,b] = [b,a]
-//   console.log(a)
-//   console.log(b)
-// }
-
-// swap(3,4)
+let arr = []
+for(let i = 0; i < 20000; i++){
+    arr.push(i);
+}
+//arr = _.shuffle(arr)
+//console.log('arr', arr)
+const sorted = quickSortSwap(arr, 0, arr.length - 1)
+console.log('sorted', sorted)
