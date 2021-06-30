@@ -1,51 +1,53 @@
-// function quickSortSwap(list, low, high) {
-//   if (low < high) {
-//     const pivot = list[low];
-//     let left = low;
-//     let right = high;
-//     while (left !== right) {
-//       while (list[right] > pivot) {
-//         right--;
-//       }
-//       while (list[left] < pivot) {
-//         left++;
-//       }
-//       if (left < high) {
-//         [list[left], list[right]] = [list[right], list[left]];
+// var items = [5, 3, 7, 6, 2, 9];
+const _shuffle = require('lodash/shuffle');
 
-//         right--;
-//         left++;
-//       }
-//     }
-//     quickSortSwap(list, low, left - 1);
-//     quickSortSwap(list, right + 1, high);
-//   }
-//   return list;
-// }
+var items = [];
+for (let i = 0; i < 10_000_000; i++) {
+  items.push(i);
+}
 
-//  Gayle Laakmaan CCI pag 148. IT'S NOT WORKING
-function partition(list, left, right){
-  let pivot = list[left + (right - left)/2]
-  while(left <= right){
-    while(list[left] < pivot) left++
-    while(list[right] > pivot) right--
-    if(left <= right){ // If true the list is already ordered
-      [list[left], list[right]] = [list[right], list[left]]; //swap
-      left++
-      right--
+items = _shuffle(items);
+console.log(items);
+
+function swap(items, leftIndex, rightIndex) {
+  var temp = items[leftIndex];
+  items[leftIndex] = items[rightIndex];
+  items[rightIndex] = temp;
+}
+
+function partition(items, left, right) {
+  var pivot = items[Math.floor((right + left) / 2)]; //middle element
+  while (left <= right) {
+    while (items[left] < pivot) {
+      left++;
+    }
+    while (items[right] > pivot) {
+      right--;
+    }
+    if (left <= right) {
+      swap(items, left, right); //sawpping two elements
+      left++;
+      right--;
     }
   }
-  return left
+  return left;
 }
 
-function quickSortSwap(list, left, right){
-  let index = partition(list, left, right)
-  if(left < index - 1){
-    quickSortSwap(list, left, index -1)
+function quickSort(items, left, right) {
+  var index;
+  if (items.length > 1) {
+    index = partition(items, left, right); //index returned from partition
+    if (left < index - 1) {
+      //more elements on the left side of the pivot
+      quickSort(items, left, index - 1);
+    }
+    if (index < right) {
+      //more elements on the right side of the pivot
+      quickSort(items, index, right);
+    }
   }
-  if(index < right){
-    quickSortSwap(list, index, right)
-  }
+  return items;
 }
-
-module.exports = quickSortSwap;
+// first call to quick sort
+var sortedArray = quickSort(items, 0, items.length - 1);
+console.log(sortedArray); //prints [2,3,5,6,7,9]
